@@ -4,16 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyGenes - פריצת דרך ישראלית בירידה במשקל</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Popup Modal -->
+    <div class="popup-overlay" id="popupModal">
+        <div class="popup-modal">
+            <button class="popup-close" id="closePopup">
+                <svg width="52" height="52" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="16" fill="#666666"/>
+                    <path d="M22 10L10 22M10 10L22 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <div class="popup-content">
+                <h2 class="popup-title">השאירו פרטים עכשיו וקבלו שיחת ייעוץ חינם מהצוות שלנו</h2>
+                
+                <div class="popup-banner">
+                    <p>ההטבה זמינה לזמן מוגבל</p>
+                </div>
+                
+                <div class="popup-countdown">
+                    <div class="popup-countdown-item">
+                        <div class="popup-countdown-number" id="popup-days">01</div>
+                        <div class="popup-countdown-label">ימים</div>
+                    </div>
+                    <div class="popup-countdown-item">
+                        <div class="popup-countdown-number" id="popup-hours">04</div>
+                        <div class="popup-countdown-label">שעות</div>
+                    </div>
+                    <div class="popup-countdown-item">
+                        <div class="popup-countdown-number" id="popup-minutes">25</div>
+                        <div class="popup-countdown-label">דקות</div>
+                    </div>
+                    <div class="popup-countdown-item">
+                        <div class="popup-countdown-number" id="popup-seconds">02</div>
+                        <div class="popup-countdown-label">שניות</div>
+                    </div>
+                </div>
+                
+                <button class="popup-cta-button">
+                    <span>תנו לי עכשיו שיחת התאמה בחינם</span>
+                    <img src="images/button_arrows.svg" alt="" class="cta-icon">
+                </button>
+                
+                <p class="popup-registered">1,283 אנשים כבר נרשמו היום</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Top Countdown Banner -->
     <div class="top-banner">
         <div class="container">
             <div class="banner-content">
                 <div class="countdown-small">
-                    <span class="timer" id="banner-timer">24:34:00</span>
                     <span class="banner-text">ההטבה זמינה לעוד:</span>
+                    <span class="timer" id="banner-timer">24:34:00</span>
                 </div>
                 <div class="divider"></div>
                 <div class="banner-message">
@@ -102,7 +151,7 @@
                     <div class="genetic-chart">
                         <img src="images/Frame 1000003974.png" alt="85% התאמה גנטית" class="chart-image">
                     </div>
-                    <img src="images/image 28.png" alt="פרופיל גנטי" class="genetic-profile">
+                    <img src="images/image 28.png" alt="פרופיל גנטי" class="genetic-profile genetic-profile-small">
                 </div>
                 <div class="genetic-card">
                     <div class="genetic-chart">
@@ -141,7 +190,7 @@
     <section class="education-section">
         <div class="container education-container">
             <div class="education-card">
-                <div class="free-badge">חם!</div>
+                <div class="free-badge">חשיפה ראשונה!</div>
                 <div class="education-content">
                     <h2 class="education-title">זה לא סוד: עד היום לא היה סיכוי אמיתי לאף אחד לרדת במשקל בקלות</h2>
                     <img src="images/image 47.png" alt="Education" class="education-image">
@@ -956,6 +1005,25 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/myegeneslogo.svg" alt="MyGenes Logo" class="footer-logo-img">
+                </div>
+                <p class="footer-info">
+                    לב חי גנטיקה | © 2025 כל הזכויות שמורות | יגאל אלון 94, תל אביב, קומה 12, משרד לב חי | 03-3095244
+                </p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">מדיניות פרטיות</a>
+                    <div class="footer-divider"></div>
+                    <a href="#" class="footer-link">תנאי שימוש</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>

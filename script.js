@@ -1,3 +1,41 @@
+// Popup Modal Functionality
+function initPopup() {
+    const popupModal = document.getElementById('popupModal');
+    const closePopup = document.getElementById('closePopup');
+    const popupCTA = document.querySelector('.popup-cta-button');
+    
+    // Show popup on page load (after a short delay)
+    setTimeout(() => {
+        if (popupModal) {
+            popupModal.classList.add('active');
+        }
+    }, 1000); // Show after 1 second
+    
+    // Close popup when X is clicked
+    if (closePopup) {
+        closePopup.addEventListener('click', () => {
+            popupModal.classList.remove('active');
+        });
+    }
+    
+    // Close popup when clicking outside
+    if (popupModal) {
+        popupModal.addEventListener('click', (e) => {
+            if (e.target === popupModal) {
+                popupModal.classList.remove('active');
+            }
+        });
+    }
+    
+    // Close popup when CTA is clicked
+    if (popupCTA) {
+        popupCTA.addEventListener('click', () => {
+            popupModal.classList.remove('active');
+            // You can add additional action here (e.g., scroll to form, open booking page)
+        });
+    }
+}
+
 // Countdown Timer Functionality
 function initCountdown() {
     // Set countdown end time (24 hours from now)
@@ -32,6 +70,12 @@ function initCountdown() {
         updateCountdownSection('hours-2', hours);
         updateCountdownSection('minutes-2', minutes);
         updateCountdownSection('seconds-2', seconds);
+        
+        // Update popup countdown
+        updateCountdownSection('popup-days', days);
+        updateCountdownSection('popup-hours', hours);
+        updateCountdownSection('popup-minutes', minutes);
+        updateCountdownSection('popup-seconds', seconds);
         
         // If countdown is finished
         if (distance < 0) {
@@ -173,6 +217,7 @@ function initImageErrorHandling() {
 
 // Initialize all functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    initPopup();
     initCountdown();
     initSmoothScroll();
     initScrollAnimations();
