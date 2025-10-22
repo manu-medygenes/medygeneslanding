@@ -8,13 +8,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
-    <!-- Popup Modal -->
+    <!-- Form Popup Modal -->
+    <div class="popup-overlay" id="formPopup">
+        <div class="popup-modal form-popup-modal">
+            <button class="popup-close" id="closeFormPopup">
+                <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="16" fill="#666666"/>
+                    <path d="M22 10L10 22M10 10L22 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <div class="form-popup-content">
+                <h2 class="form-popup-title">השאירו פרטים וניצור קשר בהקדם</h2>
+                <p class="form-popup-subtitle">מלאו את הפרטים ונחזור אליכם תוך 24 שעות</p>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="fullName" name="fullName" placeholder="שם מלא *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="טלפון נייד *" required pattern="[0-9]{10}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="כתובת אימייל *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="age" name="age" required>
+                            <option value="" disabled selected>גיל *</option>
+                            <option value="18-25">18-25</option>
+                            <option value="26-35">26-35</option>
+                            <option value="36-45">36-45</option>
+                            <option value="46-55">46-55</option>
+                            <option value="56-65">56-65</option>
+                            <option value="66+">66+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="3" placeholder="הערות נוספות (אופציונלי)"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit-button">
+                        <span>שלח פרטים</span>
+                    </button>
+                    
+                    <p class="form-privacy-note">* המידע שלך מאובטח ולא יועבר לצד שלישי</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Popup Modal -->
     <div class="popup-overlay" id="popupModal">
         <div class="popup-modal">
             <button class="popup-close" id="closePopup">
-                <svg width="52" height="52" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="35" height="35" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="16" cy="16" r="16" fill="#666666"/>
                     <path d="M22 10L10 22M10 10L22 22" stroke="white" stroke-width="2" stroke-linecap="round"/>
                 </svg>

@@ -1,4 +1,84 @@
-// Popup Modal Functionality
+// Form Popup Functionality
+function initFormPopup() {
+    const formPopup = document.getElementById('formPopup');
+    const closeFormPopup = document.getElementById('closeFormPopup');
+    const contactForm = document.getElementById('contactForm');
+    
+    // Function to open form popup
+    function openFormPopup() {
+        if (formPopup) {
+            formPopup.classList.add('active');
+        }
+    }
+    
+    // Function to close form popup
+    function closeFormPopupHandler() {
+        if (formPopup) {
+            formPopup.classList.remove('active');
+        }
+    }
+    
+    // Close form popup when X is clicked
+    if (closeFormPopup) {
+        closeFormPopup.addEventListener('click', closeFormPopupHandler);
+    }
+    
+    // Close form popup when clicking outside
+    if (formPopup) {
+        formPopup.addEventListener('click', (e) => {
+            if (e.target === formPopup) {
+                closeFormPopupHandler();
+            }
+        });
+    }
+    
+    // Handle form submission
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                age: document.getElementById('age').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Here you would typically send the data to your server
+            console.log('Form submitted:', formData);
+            
+            // Show success message
+            alert('תודה רבה! פרטיך התקבלו בהצלחה. ניצור איתך קשר בהקדם.');
+            
+            // Close the popup
+            closeFormPopupHandler();
+            
+            // Reset form
+            contactForm.reset();
+            
+            // You can add your form submission logic here:
+            // Example: send to Google Sheets, email service, or your backend
+            // fetch('/api/submit-form', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formData)
+            // });
+        });
+    }
+    
+    // Attach click handlers to all CTA buttons
+    const ctaButtons = document.querySelectorAll('.cta-button, .popup-cta-button');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            openFormPopup();
+        });
+    });
+}
+
+// Welcome Popup Modal Functionality
 function initPopup() {
     const popupModal = document.getElementById('popupModal');
     const closePopup = document.getElementById('closePopup');
@@ -27,11 +107,10 @@ function initPopup() {
         });
     }
     
-    // Close popup when CTA is clicked
+    // Close welcome popup when its CTA button is clicked
     if (popupCTA) {
         popupCTA.addEventListener('click', () => {
             popupModal.classList.remove('active');
-            // You can add additional action here (e.g., scroll to form, open booking page)
         });
     }
 }
@@ -100,28 +179,10 @@ function initCountdown() {
     updateCountdown();
 }
 
-// Smooth scroll for CTA buttons
+// Smooth scroll functionality (if needed for other elements)
 function initSmoothScroll() {
-    const ctaButtons = document.querySelectorAll('.cta-button');
-    
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // You can add a scroll to form or open a modal here
-            // For now, we'll just add a simple alert
-            // Replace this with your actual form/modal logic
-            
-            // Example: scroll to contact form if it exists
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                e.preventDefault();
-                contactForm.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                // Or open a modal, redirect to booking page, etc.
-                console.log('CTA button clicked');
-                // window.location.href = 'your-booking-url';
-            }
-        });
-    });
+    // CTA buttons now handled by initFormPopup()
+    // Add any other smooth scroll functionality here if needed
 }
 
 // Add animation on scroll
@@ -217,6 +278,7 @@ function initImageErrorHandling() {
 
 // Initialize all functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    initFormPopup();
     initPopup();
     initCountdown();
     initSmoothScroll();
